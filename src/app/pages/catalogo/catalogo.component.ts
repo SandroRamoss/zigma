@@ -23,7 +23,7 @@ export class CatalogoComponent implements OnInit {
     //    this.precio = data[0].precioArticulo[data[0].precioArticulo.length - 1];
     //  });
 
-
+   //oyeee sandro
 
    }
 
