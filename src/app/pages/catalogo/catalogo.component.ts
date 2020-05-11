@@ -24,7 +24,7 @@ export class CatalogoComponent implements OnInit {
     //  });
 
    //oyeee sandro no te compres todo
-
+    // peke se durmio 
    }
 
   ngOnInit(): void {
