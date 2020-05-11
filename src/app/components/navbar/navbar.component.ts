@@ -11,13 +11,13 @@ export class NavbarComponent implements OnInit {
    bpro: any [] = [];
 
   constructor( private rest: WebrestService) { }
-   buscar( termino: any ) {
-      this.rest.getArticulo( termino )
-      .subscribe((data: any) => {
-        console.log(data);
-        this.bpro = data;
+   buscar( termino: string ) {
+  //     this.rest.getArticulo( termino )
+  //     .subscribe((data: any) => {
+  //       console.log(data);
+  //       this.bpro = data;
 
-      });
+      // });
    }
   ngOnInit(): void {
   }

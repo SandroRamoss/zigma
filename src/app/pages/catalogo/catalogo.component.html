@@ -1,15 +1,22 @@
 <h1 class="mt-2">Catalogo de Productos: </h1>
 
-<div *ngFor="let pro of productos" class="card animated fadeIn fast">
-    <img class="card-img-top img-fluid" [src]="pro.image" alt="">
-    <div class="card-body">
-        <h5 class="card-title">
-            {{pro.name}}
-        </h5>
-        <p class="card-text"></p>
-        <p class="card-text">Precio: $/{{pro.price}}</p>
-        <button type="button" class="btn btn-outline-primary btn-block">
-        Ver màs...</button>
+<div class="container">
+    <div class="row justify-content-center">
+        <div *ngFor="let pro of productos" class="row-2">
+            <div class="card shadow" style="width: 19rem; height: 28rem;">
+                <div class="inner">
+                    <img class="card-img-top img-fluid" [src]="pro.image" alt="Card image cap">
+                </div>
+                <div class="card-body main">
+                    <h5 class="card-title">
+                        {{pro.name}}
+                    </h5>
+                    <p class="card-text">Precio: $/{{pro.price}}</p>
+                    <button type="button" class="btn btn-outline-primary btn-block">
+                    Pedir</button>
 
+                </div>
+            </div>
+        </div>
     </div>
 </div>
