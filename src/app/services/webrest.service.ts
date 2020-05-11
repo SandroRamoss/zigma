@@ -14,9 +14,9 @@ export class WebrestService {
       return this.http.get(this.tiendaurl);
     }
 
-    getB( termino: any) {
-     return this.http.get(this.tiendaurl);
-    }
+    // getB( termino: any) {
+    //  return this.http.get(this.tiendaurl);
+    // }
 
 
 
