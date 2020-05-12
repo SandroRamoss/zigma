@@ -9,6 +9,7 @@ import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { ProductComponent } from './pages/product/product.component';
 
 
 
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     HomeComponent,
     CatalogoComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

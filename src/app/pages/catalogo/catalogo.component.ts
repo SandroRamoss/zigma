@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WebrestService } from '../../services/webrest.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',
@@ -9,9 +9,9 @@ import { WebrestService } from '../../services/webrest.service';
 export class CatalogoComponent implements OnInit {
 
     productos: any[] = [];
-    precio: any[] = [];
-
-  constructor( private rest: WebrestService ) {
+    
+  constructor( private rest: WebrestService, 
+               private router: Router) {
      this.rest.getNewArticulos()
      .subscribe( (data: any ) => {
        console.log(data.products);
@@ -25,6 +25,9 @@ export class CatalogoComponent implements OnInit {
 
    //oyeee sandro no te compres todo
     // peke se durmio 
+   }
+   verProduct( idx: number ){
+    this.router.navigate(['product', idx]);
    }
 
   ngOnInit(): void {

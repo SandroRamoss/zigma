@@ -1,21 +1,19 @@
 <h1 class="mt-2">Catalogo de Productos: </h1>
+<br>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div *ngFor="let pro of productos" class="row-2">
-            <div class="card shadow" style="width: 19rem; height: 28rem;">
-                <div class="inner">
-                    <img class="card-img-top img-fluid" [src]="pro.image" alt="Card image cap">
-                </div>
-                <div class="card-body main">
-                    <h5 class="card-title">
-                        {{pro.name}}
-                    </h5>
-                    <p class="card-text">Precio: $/{{pro.price}}</p>
-                    <button type="button" class="btn btn-outline-primary btn-block">
-                    Pedir</button>
+<div class="row row-cols-1 row-cols-md-3">
+    <div *ngFor="let pro of productos; let i = index" class="col mb-4">
+        <div class="card animated fadeIn">
+            <div class="inner">
+                <img class="card-img-top img-fluid" [src]="pro.image" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{pro.name}}</h5>
+                <p class="card-text">Precio: $/{{pro.price}}</p>
+                <button (click)="verProduct(i)" type="button" class="btn btn-outline-danger btn-block"> Ver mas </button>
 
-                </div>
+                <!-- <a [routerLink]="['/product', i]" type="button" class="btn btn-outline-danger btn-block">
+                Ver màs...</a> -->
             </div>
         </div>
     </div>
