@@ -8,31 +8,20 @@ import { Router } from '@angular/router';
 })
 export class CatalogoComponent implements OnInit {
 
-    productos: any[] = [];
-    
-  constructor( private rest: WebrestService, 
-               private router: Router) {
-     this.rest.getNewArticulos()
-     .subscribe( (data: any ) => {
-       console.log(data.products);
-       this.productos = data.products;
-     });
+  products: any[] = [];
 
-    //  this.rest.getNewPrecio()
-    //  .subscribe((data: any ) => {
-    //    this.precio = data[0].precioArticulo[data[0].precioArticulo.length - 1];
-    //  });
-
-   //oyeee sandro no te compres todo
-    // peke se durmio 
-   }
-   verProduct( idx: number ){
-    this.router.navigate(['product', idx]);
-   }
+  constructor(private rest: WebrestService, private router: Router) { }
 
   ngOnInit(): void {
+    this.rest.getNewArticulos()
+      .subscribe((data: any) => {
+        // console.log(data.products);
+        this.products = data.products;
+      });
+  }
 
-
+  verProduct(id: number) {
+    this.router.navigate(['product', id]);
   }
 
 }

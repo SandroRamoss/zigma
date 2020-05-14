@@ -1,16 +1,19 @@
-<h1 class="animated fadeIn"> {{product}} <small>Cantidad</small></h1>
+<!-- <h1 class="animated fadeIn"> <small>Cantidad</small> {{product.quantity}}</h1> -->
 <hr>
 <div class="row animated fadeIn fast">
     <div class="col-md-4">
-        <img [src]="" class="img-fluid" [alt]="">
+        <img [src]="product.image" class="img-fluid" [alt]="">
         <br><br>
         <a [routerLink]="['']" class="btn btn-outline-danger btn-block">Regresar</a>
     </div>
     <div class="col-md-8">
-        <h3>pancito</h3>
+        <h3>{{product.name}}</h3>
         <hr>
         <p>
-            contiene tal tal
+            Precio: {{product.price}}
+        </p>
+        <p>
+            Cantidad: {{product.quantity}}
         </p>
         <div>
             <img class="img-logo" src="" alt="">

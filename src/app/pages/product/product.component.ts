@@ -10,19 +10,26 @@ import { WebrestService } from '../../services/webrest.service';
 })
 export class ProductComponent implements OnInit {
 
-    product: any [] = [];
-
-  constructor( private activetedRoute: ActivatedRoute,
-               private webrest: WebrestService) {
-
-    this.activetedRoute.params.subscribe( params => {
-       console.log( params.id );
-       this.product = this.webrest.getNewArticulo( params.product);
-       console.log( this.product );
-    });
+  product = {
+    image: '',
+    name: '',
+    price: '',
+    quantity: ''
   }
 
+  constructor(private activetedRoute: ActivatedRoute,
+    private webrest: WebrestService) { }
+
   ngOnInit(): void {
+    this.activetedRoute.params.subscribe(params => {
+      console.log(params.id);
+      this.webrest.getNewArticulo(params.id)
+        .subscribe((product: any) => {
+          console.log(product)
+          this.product = product
+        }
+        )
+    });
   }
 
 }

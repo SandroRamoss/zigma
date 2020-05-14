@@ -6,23 +6,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WebrestService {
 
-  private tiendaurl = 'https://springboot-deploy-apicaterin.herokuapp.com/api/products';
+  private tiendaurl = 'https://springboot-deploy-apicaterin.herokuapp.com/api';
 
-  constructor( private http: HttpClient ) {
+  constructor(private http: HttpClient) {
   }
-    getNewArticulos() {
-      return this.http.get(this.tiendaurl);
-    }
+  getNewArticulos() {
+    return this.http.get(`${this.tiendaurl}/products`);
+  }
 
-    // getB( termino: any) {
-    //  return this.http.get(this.tiendaurl);
-    // }
-    getNewArticulo(idx: string ) {
-     return this.tiendaurl[idx];
-    }
-
-
-
-
+  getNewArticulo(id: string) {
+    return this.http.get(`${this.tiendaurl}/products/${id}`);
+  }
 
 }
