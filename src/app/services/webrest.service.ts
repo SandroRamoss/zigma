@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WebrestService {
 
-  private tiendaurl = 'https://springboot-deploy-apicaterin.herokuapp.com/api';
+  private tiendaurl = 'https://apirest-zigmaperu.azurewebsites.net/api';
 
   constructor(private http: HttpClient) {
   }
@@ -16,6 +16,10 @@ export class WebrestService {
 
   getNewArticulo(id: string) {
     return this.http.get(`${this.tiendaurl}/products/${id}`);
+  }
+
+  buscarArticulo(termino: string) {
+    return this.http.get(`${this.tiendaurl}/products/search/${termino}`);
   }
 
 }

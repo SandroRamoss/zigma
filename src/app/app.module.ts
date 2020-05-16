@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ProductComponent } from './pages/product/product.component';
+import { BuscadorComponent } from './pages/buscador/buscador.component';
 
 
 
@@ -20,7 +21,8 @@ import { ProductComponent } from './pages/product/product.component';
     HomeComponent,
     CatalogoComponent,
     NavbarComponent,
-    ProductComponent
+    ProductComponent,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WebrestService } from '../../services/webrest.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar',
@@ -8,16 +10,24 @@ import { WebrestService } from '../../services/webrest.service';
 })
 export class NavbarComponent implements OnInit {
 
-   bpro: any [] = [];
+   bpro = {
+     image: '',
+     name: '',
+     price: '',
+     quantity: ''
+   };
 
-  constructor( private rest: WebrestService) { }
+  constructor( private rest: WebrestService,
+               private router: Router) { }
    buscar( termino: string ) {
-  //     this.rest.getArticulo( termino )
-  //     .subscribe((data: any) => {
-  //       console.log(data);
-  //       this.bpro = data;
+      this.rest.buscarArticulo( termino )
+      .subscribe((data: any) => {
+        console.log(data);
+        this.bpro = data;
+        
 
-      // });
+      });
+      this.router.navigate(['/buscador', termino]);
    }
   ngOnInit(): void {
   }

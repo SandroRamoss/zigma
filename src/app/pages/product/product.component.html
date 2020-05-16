@@ -1,23 +1,30 @@
 <!-- <h1 class="animated fadeIn"> <small>Cantidad</small> {{product.quantity}}</h1> -->
-<hr>
+<br>
 <div class="row animated fadeIn fast">
     <div class="col-md-4">
-        <img [src]="product.image" class="img-fluid" [alt]="">
+        <div class="inner">
+            <img class="card-img-top img-fluid" [src]="product.image" alt="Card image cap">
+        </div>
         <br><br>
-        <a [routerLink]="['']" class="btn btn-outline-danger btn-block">Regresar</a>
+        <a [routerLink]="['/catalogo']" class="btn btn-outline-danger btn-block">Regresar</a>
     </div>
     <div class="col-md-8">
         <h3>{{product.name}}</h3>
         <hr>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore suscipit ducimus dolore obcaecati rem velit beatae recusandae placeat delectus doloribus, accusantium praesentium ab eveniet eum quam in repellat temporibus voluptas.</p>
         <p>
-            Precio: {{product.price}}
+            Precio: S/{{product.price}}
         </p>
         <p>
-            Cantidad: {{product.quantity}}
+            Cantidad:
         </p>
-        <div>
-            <img class="img-logo" src="" alt="">
-            <img class="img-logo" src="" alt="">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+                <button class="btn btn-outline-danger"><i class="fas fa-check-circle"> Realizar pedido</i></button>
+            </div>
+            <div class="btn-group mr-2" role="group" aria-label="Second group">
+                <button class="btn btn-outline-dark"><i class="fas fa-shopping-cart"> Añadir a la cesta</i></button>
+            </div>
         </div>
     </div>
 </div>
