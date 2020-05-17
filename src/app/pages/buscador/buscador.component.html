@@ -1,1 +1,25 @@
-<p>buscador works!</p>
+<div *ngIf="busqueda">
+    <div *ngIf="resultados.length==0; else listado">
+        <h1>Uy como que eso no tenemos papi, como hariamos? 😕 </h1>
+    </div>
+
+    <ng-template #listado>
+        <div class="row row-cols-1 row-cols-md-3">
+            <div *ngFor="let result of resultados" class="col mb-4">
+                <div class="card animated fadeIn">
+                    <div class="inner">
+                        <img class="card-img-top img-fluid" [src]="result.image" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{result.name}}</h5>
+                        <p class="card-text">Precio: $/{{result.price}}</p>
+                        <button (click)="verProduct(result.id)" type="button" class="btn btn-outline-danger btn-block">
+                            Ver
+                            mas
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

@@ -1,36 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { WebrestService } from '../../services/webrest.service';
-import { Router } from '@angular/router';
-
+import { Component, OnInit } from "@angular/core";
+import { WebrestService } from "../../services/webrest.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styles: []
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html",
+  styles: [],
 })
 export class NavbarComponent implements OnInit {
+  resultBusq = [];
 
-   bpro = {
-     image: '',
-     name: '',
-     price: '',
-     quantity: ''
-   };
+  constructor(private rest: WebrestService, private router: Router) {}
 
-  constructor( private rest: WebrestService,
-               private router: Router) { }
-   buscar( termino: string ) {
-      this.rest.buscarArticulo( termino )
-      .subscribe((data: any) => {
-        console.log(data);
-        this.bpro = data;
-        
-
-      });
-      this.router.navigate(['/buscador', termino]);
-   }
-  ngOnInit(): void {
+  buscar(termino: string) {
+    this.resultBusq = [];
+    this.router.navigate(["/buscador", termino]);
   }
 
+  buscar2(termino: string) {
+    this.rest.buscarArticulo2(termino).subscribe((data: any) => {
+      if (data) {
+        this.resultBusq = data;
+      } else {
+        this.resultBusq = [];
+      }
+    });
+  }
 
+  verProduct(id: number) {
+    this.resultBusq = [];
+    this.router.navigate(["product", id]);
+  }
+
+  ngOnInit(): void {}
 }

@@ -1,10 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" [routerLink]="['home']">Zigma</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['home']">Home</a>
@@ -13,20 +15,27 @@
                 <a class="nav-link" [routerLink]="['catalogo']">Catalogo</a>
             </li>
         </ul>
+
         <div class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Buscar producto" (keyup.enter)="$event.preventDefault()" (keyup.enter)="buscar(buscarTexto.value)" #buscarTexto>
-            <button (click)="buscar(buscarTexto.value)" class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar</button>
+
+            <div class="dropdown mr-md-3 mr-sm-2">
+                <input class="form-control" type="text" placeholder="Buscar producto" id="buscarId"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autocomplete="off"
+                    (keyup.enter)="$event.preventDefault()" (keyup.enter)="buscar(inptBuscar.value)"
+                    (input)="buscar2(inptBuscar.value)" #inptBuscar />
+                <div class="dropdown-menu" [ngClass]="{ 'd-none': resultBusq.length == 0 }" aria-labelledby="buscarId">
+                    <a *ngFor="let result of resultBusq" class="dropdown-item" (click)="inptBuscar.value=result.name"
+                        (click)="verProduct(result.id)">
+                        {{ result.name }}
+                    </a>
+                </div>
+            </div>
+
+            <button (click)="buscar(inptBuscar.value)" class="btn btn-outline-primary my-2 my-sm-0" type="button">
+                Buscar
+            </button>
+
         </div>
-    </div>
-</nav>
-<!-- <div *ngFor="let buscar of bpro" class="card animated fadeIn fast">
-    <img class="card-img-top img-fluid" [src]="buscar.url" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">
-            {{buscar.description}}
-        </h5>
-        <button type="button" class="btn btn-outline-primary btn-block">
-        Ver màs...</button>
 
     </div>
-</div> -->
+</nav>
