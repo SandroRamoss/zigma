@@ -1,21 +1,22 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { WebrestService } from "src/app/services/webrest.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { WebrestService } from 'src/app/services/webrest.service';
 @Component({
-  selector: "app-buscador",
-  templateUrl: "./buscador.component.html",
-  styleUrls: ["./buscador.component.css"],
+  selector: 'app-buscador',
+  templateUrl: './buscador.component.html',
+  styleUrls: ['./buscador.component.css'],
 })
 export class BuscadorComponent implements OnInit {
   resultados = [];
   busqueda = false;
+
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private webrest: WebrestService,
     private router: Router
   ) {}
-
+  p: number = 1;
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       console.log(params.termino);
@@ -28,6 +29,6 @@ export class BuscadorComponent implements OnInit {
   }
 
   verProduct(id: number) {
-    this.router.navigate(["product", id]);
+    this.router.navigate(['product', id]);
   }
 }

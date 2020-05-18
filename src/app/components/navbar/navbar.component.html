@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" [routerLink]="['home']">Zigma</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -19,21 +18,21 @@
         <div class="form-inline my-2 my-lg-0">
 
             <div class="dropdown mr-md-3 mr-sm-2">
-                <input class="form-control" type="text" placeholder="Buscar producto" id="buscarId"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autocomplete="off"
-                    (keyup.enter)="$event.preventDefault()" (keyup.enter)="buscar(inptBuscar.value)"
-                    (input)="buscar2(inptBuscar.value)" #inptBuscar />
+                <input class="form-control" type="text" placeholder="Buscar producto" id="buscarId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autocomplete="off" (keyup.enter)="$event.preventDefault()" (keyup.enter)="buscar(inptBuscar.value)" (input)="buscar2(inptBuscar.value)"
+                    #inptBuscar />
                 <div class="dropdown-menu" [ngClass]="{ 'd-none': resultBusq.length == 0 }" aria-labelledby="buscarId">
-                    <a *ngFor="let result of resultBusq" class="dropdown-item" (click)="inptBuscar.value=result.name"
-                        (click)="verProduct(result.id)">
+                    <a *ngFor="let result of resultBusq" class="dropdown-item" (click)="inptBuscar.value=result.name" (click)="verProduct(result.id)">
                         {{ result.name }}
                     </a>
+
                 </div>
             </div>
 
             <button (click)="buscar(inptBuscar.value)" class="btn btn-outline-primary my-2 my-sm-0" type="button">
-                Buscar
+                <i class="fas fa-search"></i>
             </button>
+
+
 
         </div>
 

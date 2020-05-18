@@ -1,15 +1,16 @@
 <h1 class="mt-2">Catalogo de Productos: </h1>
+<hr>
 <br>
 
 <div class="row row-cols-1 row-cols-md-3">
-    <div *ngFor="let product of products; let i = index" class="col mb-4">
+    <div *ngFor="let product of products | paginate: { itemsPerPage: 6, currentPage: p }" class="col mb-4">
         <div class="card animated fadeIn">
             <div class="inner">
                 <img class="card-img-top img-fluid" [src]="product.image" alt="Card image cap">
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
-                <p class="card-text">Precio: $/{{product.price}}</p>
+                <p class="card-text">Precio: S/{{product.price}}</p>
                 <button (click)="verProduct(product.id)" type="button" class="btn btn-outline-danger btn-block"> Ver mas
                 </button>
                 <!-- <a [routerLink]="['/product', i]" type="button" class="btn btn-outline-danger btn-block">
@@ -17,4 +18,6 @@
             </div>
         </div>
     </div>
+
 </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

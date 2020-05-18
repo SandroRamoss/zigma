@@ -13,6 +13,8 @@ import { ProductComponent } from './pages/product/product.component';
 import { BuscadorComponent } from './pages/buscador/buscador.component';
 
 
+// Externals
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -22,11 +24,12 @@ import { BuscadorComponent } from './pages/buscador/buscador.component';
     CatalogoComponent,
     NavbarComponent,
     ProductComponent,
-    BuscadorComponent
+    BuscadorComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    NgxPaginationModule,
     AppRoutingModule
   ],
   providers: [],

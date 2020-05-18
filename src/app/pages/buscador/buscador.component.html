@@ -5,14 +5,14 @@
 
     <ng-template #listado>
         <div class="row row-cols-1 row-cols-md-3">
-            <div *ngFor="let result of resultados" class="col mb-4">
+            <div *ngFor="let result of resultados | paginate: { itemsPerPage: 6, currentPage: p }" class="col mb-4">
                 <div class="card animated fadeIn">
                     <div class="inner">
                         <img class="card-img-top img-fluid" [src]="result.image" alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{result.name}}</h5>
-                        <p class="card-text">Precio: $/{{result.price}}</p>
+                        <p class="card-text">Precio: S/{{result.price}}</p>
                         <button (click)="verProduct(result.id)" type="button" class="btn btn-outline-danger btn-block">
                             Ver
                             mas
@@ -21,5 +21,6 @@
                 </div>
             </div>
         </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </ng-template>
 </div>

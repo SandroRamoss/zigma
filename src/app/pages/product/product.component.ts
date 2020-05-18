@@ -1,18 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { WebrestService } from "../../services/webrest.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { WebrestService } from '../../services/webrest.service';
 
 @Component({
-  selector: "app-product",
-  templateUrl: "./product.component.html",
-  styleUrls: ["./product.component.css"],
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
   product = {
-    image: "",
-    name: "",
-    price: "",
-    quantity: "",
+    image: '',
+    name: '',
+    price: '',
+    quantity: '',
+    description: '',
   };
 
   constructor(
